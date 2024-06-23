@@ -24,13 +24,14 @@ internal struct JavaScriptBridge {
     }
 }
 
-internal extension RecurrenceFrequency {
+internal extension EKRecurrenceFrequency {
     fileprivate func toJSONFrequency() -> String {
         switch self {
         case .daily: "RRule.DAILY"
         case .weekly: "RRule.WEEKLY"
         case .monthly: "RRule.MONTHLY"
         case .yearly: "RRule.YEARLY"
+        @unknown default: ""
         }
     }
 }

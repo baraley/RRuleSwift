@@ -44,7 +44,7 @@ public struct RRule {
         }
 
         var recurrenceRule = RecurrenceRule(frequency: .daily)
-        var ruleFrequency: RecurrenceFrequency?
+        var ruleFrequency: EKRecurrenceFrequency?
         for rule in rules {
             let ruleComponents = rule.components(separatedBy: "=")
             guard ruleComponents.count == 2 else {
@@ -57,7 +57,7 @@ public struct RRule {
             }
 
             if ruleName == "FREQ" {
-                ruleFrequency = RecurrenceFrequency(rawValue: ruleValue)
+                ruleFrequency = EKRecurrenceFrequency(rawValue: ruleValue)
             }
 
             if ruleName == "INTERVAL" {
@@ -195,7 +195,7 @@ public struct RRule {
     public static func stringFromRule(_ rule: RecurrenceRule) -> String {
         var rruleString = "RRULE:"
 
-        rruleString += "FREQ=\(rule.frequency.rawValue);"
+        rruleString += "FREQ=\(rule.frequency.toString);"
 
         let interval = max(1, rule.interval)
         rruleString += "INTERVAL=\(interval);"

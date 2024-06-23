@@ -14,7 +14,7 @@ public struct RecurrenceRule {
     public var calendar = Calendar.current
 
     /// The frequency of the recurrence rule.
-    public var frequency: RecurrenceFrequency
+    public var frequency: EKRecurrenceFrequency
 
     /// Specifies how often the recurrence rule repeats over the component of time indicated by its frequency. For example, a recurrence rule with a frequency type of RecurrenceFrequency.weekly and an interval of 2 repeats every two weeks.
     ///
@@ -77,7 +77,7 @@ public struct RecurrenceRule {
     /// The exclusion dates of the recurrence rule. The dates of this property will not be generated, even if some inclusive rdate matches the recurrence rule.
     public var exdate: ExclusionDate?
 
-    public init(frequency: RecurrenceFrequency) {
+    public init(frequency: EKRecurrenceFrequency) {
         self.frequency = frequency
     }
 
