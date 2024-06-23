@@ -57,7 +57,7 @@ public struct RRule {
             }
 
             if ruleName == "FREQ" {
-                ruleFrequency = RecurrenceFrequency.frequency(from: ruleValue)
+                ruleFrequency = RecurrenceFrequency(rawValue: ruleValue)
             }
 
             if ruleName == "INTERVAL" {
@@ -195,7 +195,7 @@ public struct RRule {
     public static func stringFromRule(_ rule: RecurrenceRule) -> String {
         var rruleString = "RRULE:"
 
-        rruleString += "FREQ=\(rule.frequency.toString());"
+        rruleString += "FREQ=\(rule.frequency.rawValue);"
 
         let interval = max(1, rule.interval)
         rruleString += "INTERVAL=\(interval);"

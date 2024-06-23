@@ -10,22 +10,22 @@ import Foundation
 
 internal extension Date {
     func isBefore(_ date: Date) -> Bool {
-        return compare(date) == .orderedAscending
+        compare(date) == .orderedAscending
     }
 
     func isSame(with date: Date) -> Bool {
-        return compare(date) == .orderedSame
+        compare(date) == .orderedSame
     }
 
     func isAfter(_ date: Date) -> Bool {
-        return compare(date) == .orderedDescending
+        compare(date) == .orderedDescending
     }
 
     func isBeforeOrSame(with date: Date) -> Bool {
-        return isBefore(date) || isSame(with: date)
+        isBefore(date) || isSame(with: date)
     }
 
     func isAfterOrSame(with date: Date) -> Bool {
-        return isAfter(date) || isSame(with: date)
+        isAfter(date) || isSame(with: date)
     }
 }
