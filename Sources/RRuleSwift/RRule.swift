@@ -145,7 +145,7 @@ public struct RRule {
             if ruleName == "BYDAY" {
                 // These variables will define the weekdays where the recurrence will be applied.
                 // In the RFC documentation, it is specified as BYDAY, but was renamed to avoid the ambiguity of that argument.
-                if ruleValue.count > 2 {
+                if ruleValue.hasPrefix("-1") {
                     let weekdayString = String(ruleValue.suffix(2))
                     EKWeekday.weekdayFromSymbol(weekdayString).map {
                         recurrenceRule.byweekday = [$0]
